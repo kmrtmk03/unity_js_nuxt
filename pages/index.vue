@@ -1,6 +1,6 @@
 <template lang="pug">
   .index
-    <Tutorial/>
+    <Unity />
     <Detail/>
 </template>
 

@@ -1,6 +1,5 @@
 <!-- Please remove this file from your project -->
 <template lang="pug">
-
   .tutorial
     #unity-container.unity-desktop
       canvas#unity-canvas(:width="win_w" :height="win_h")
@@ -9,7 +8,6 @@
         #unity-progress-bar-empty
           #unity-progress-bar-full
       #unity-warning
-
 </template>
 
 
@@ -103,7 +101,7 @@
 </script>
 
 
-<style>
+<style lang="scss" scoped>
   .tutorial {
     width: 100vw;
     height: 100vh;
