@@ -5,11 +5,16 @@
         .content
           .head
             .head_text
-              h2 <span class="small">No.{{displayNum+1}}</span> {{contents[displayNum].title}}
+              h2 {{contents[displayNum].title}}
 
-          img(src="~/assets/img/art-0.png")
+          img(:src='"~/assets/img/photo-" + displayNum + ".png"')
 
-          p(v-html="contents[displayNum].desc")
+          .text
+            p.camera 機材 ： {{contents[displayNum].camera}}
+
+            p.place 撮影場所 ： {{contents[displayNum].place}}
+
+            p.desc(v-html="contents[displayNum].desc")
 
 </template>
 
@@ -22,8 +27,70 @@
         displayNum: 0,
         contents: [
           {
-            title: "後ろに向かって走る人",
-            desc: "無料アセットのアニメーションパックに入っていた<br>「後ろ走りをする人」です。<br>後方を確認しない潔さに感心するも、使い所がありません。"
+            title: "Photo-0",
+            camera: "SONY RX100",
+            place: "大阪",
+            desc: "粒度荒目のモノクロームです"
+          },
+          {
+            title: "Photo-1",
+            camera: "SONY RX100",
+            place: "大阪",
+            desc: "粒度荒目のモノクロームです"
+          },
+          {
+            title: "Photo-2",
+            camera: "SONY RX100",
+            place: "大阪",
+            desc: "粒度荒目のモノクロームです"
+          },
+          {
+            title: "Photo-3",
+            camera: "SONY RX100",
+            place: "大阪",
+            desc: "粒度荒目のモノクロームです"
+          },
+          {
+            title: "Photo-4",
+            camera: "SONY RX100",
+            place: "大阪",
+            desc: "粒度荒目のモノクロームです"
+          },
+          {
+            title: "Photo-5",
+            camera: "SONY RX100",
+            place: "大阪",
+            desc: "粒度荒目のモノクロームです"
+          },
+          {
+            title: "Photo-6",
+            camera: "SONY RX100",
+            place: "大阪",
+            desc: "粒度荒目のモノクロームです"
+          },
+          {
+            title: "Photo-7",
+            camera: "SONY RX100",
+            place: "大阪",
+            desc: "粒度荒目のモノクロームです"
+          },
+          {
+            title: "Photo-8",
+            camera: "SONY RX100",
+            place: "大阪",
+            desc: "粒度荒目のモノクロームです"
+          },
+          {
+            title: "Photo-9",
+            camera: "SONY RX100",
+            place: "大阪",
+            desc: "粒度荒目のモノクロームです"
+          },
+          {
+            title: "Photo-10",
+            camera: "SONY RX100",
+            place: "大阪",
+            desc: "粒度荒目のモノクロームです"
           }
         ]
       }
@@ -34,6 +101,9 @@
 
       window.unityMethods.displayModal = this.displayModal
       window.unityMethods.hiddenModal = this.hiddenModal
+
+      window.unityMethods.displayModalInt = this.displayModalInt
+
     },
 
     methods: {
@@ -43,6 +113,11 @@
 
       hiddenModal() {
         this.isShow = false
+      },
+
+      displayModalInt(_index) {
+        this.displayNum = _index
+        this.displayModal()
       }
     }
 
@@ -118,8 +193,19 @@
     margin-bottom: 20px;
   }
 
-  p {
-    font-size: 14px;
-    line-height: 2;
+  .text {
+    p {
+      font-size: 14px;
+      line-height: 2;
+
+      &.camera {
+        margin-bottom: 10px;
+      }
+
+      &.place {
+        margin-bottom: 10px;
+      }
+    }
   }
+
 </style>

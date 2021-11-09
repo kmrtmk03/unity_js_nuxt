@@ -1,7 +1,10 @@
 <template lang="pug">
   .index
-    <Unity />
+    <TheHeader/>
+    <Menu/>
+    <Unity/>
     <Detail/>
+    <TheFooter/>
 </template>
 
 <script>
