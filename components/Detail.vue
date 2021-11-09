@@ -5,13 +5,11 @@
         .content
           .head
             .head_text
-              h2 <span class="small">No.1</span> 後ろに向かって走る人
+              h2 <span class="small">No.{{displayNum+1}}</span> {{contents[displayNum].title}}
 
           img(src="~/assets/img/art-0.png")
 
-          p
-            | 無料アセットのアニメーションパックに入っていた<br>「後ろ走りをする人」です。<br>
-            | 後方を確認しない潔さに感心するも、使い所がありません。
+          p(v-html="contents[displayNum].desc")
 
 </template>
 
@@ -20,7 +18,14 @@
 
     data() {
       return {
-        isShow: false
+        isShow: false,
+        displayNum: 0,
+        contents: [
+          {
+            title: "後ろに向かって走る人",
+            desc: "無料アセットのアニメーションパックに入っていた<br>「後ろ走りをする人」です。<br>後方を確認しない潔さに感心するも、使い所がありません。"
+          }
+        ]
       }
     },
 

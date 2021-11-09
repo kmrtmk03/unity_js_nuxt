@@ -16,12 +16,16 @@
     data() {
       return {
         win_w: null,
-        win_h: null
+        win_h: null,
+        myCanvas: null
       }
     },
 
     mounted() {
       this.InitUnity()
+      window.addEventListener('resize', () => {
+        this.ResizeWindow()
+      })
     },
 
     methods: {
@@ -30,7 +34,7 @@
         this.win_h = window.innerHeight
 
         var container = document.querySelector("#unity-container");
-        var canvas = document.querySelector("#unity-canvas");
+        this.myCanvas = document.querySelector("#unity-canvas");
         var loadingBar = document.querySelector("#unity-loading-bar");
         var progressBarFull = document.querySelector("#unity-progress-bar-full");
         var warningBanner = document.querySelector("#unity-warning");
@@ -68,20 +72,18 @@
 
         if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
           container.className = "unity-mobile";
-          // Avoid draining fillrate performance on mobile devices,
-          // and default/override low DPI mode on mobile browsers.
           config.devicePixelRatio = 1;
           unityShowBanner('WebGL builds are not supported on mobile devices.');
         } else {
-          canvas.style.width = this.win_w + "px";
-          canvas.style.height = this.win_h + "px";
+          this.myCanvas.style.width = this.win_w + "px";
+          this.myCanvas.style.height = this.win_h + "px";
         }
         loadingBar.style.display = "block";
 
         var script = document.createElement("script");
         script.src = loaderUrl;
         script.onload = () => {
-          createUnityInstance(canvas, config, (progress) => {
+          createUnityInstance(this.myCanvas, config, (progress) => {
             progressBarFull.style.width = 100 * progress + "%";
           }).then((unityInstance) => {
             loadingBar.style.display = "none";
@@ -90,6 +92,14 @@
           });
         };
         document.body.appendChild(script);
+      },
+
+      ResizeWindow() {
+        this.win_w = window.innerWidth
+        this.win_h = window.innerHeight
+
+        this.myCanvas.style.width = this.win_w + "px";
+        this.myCanvas.style.height = this.win_h + "px";
       },
 
       SampleHoge() {
