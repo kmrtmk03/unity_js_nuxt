@@ -4,6 +4,7 @@
     <Menu/>
     <Unity/>
     <Detail/>
+    <Controller/>
     <TheFooter/>
 </template>
 

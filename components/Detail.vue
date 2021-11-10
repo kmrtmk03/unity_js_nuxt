@@ -130,6 +130,7 @@
   }
 
   .detail {
+    display: none;
   }
 
   .inner {

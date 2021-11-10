@@ -17,15 +17,21 @@
       return {
         win_w: null,
         win_h: null,
-        myCanvas: null
+        myCanvas: null,
+        unityInstance: null
       }
     },
 
     mounted() {
+      window.unityInstance = {}
+
       this.InitUnity()
+
       window.addEventListener('resize', () => {
         this.ResizeWindow()
       })
+
+      window.unityInstance.WalkFront = this.WalkFront
     },
 
     methods: {
@@ -87,6 +93,9 @@
             progressBarFull.style.width = 100 * progress + "%";
           }).then((unityInstance) => {
             loadingBar.style.display = "none";
+
+            this.unityInstance = unityInstance
+
           }).catch((message) => {
             alert(message);
           });
@@ -100,6 +109,10 @@
 
         this.myCanvas.style.width = this.win_w + "px";
         this.myCanvas.style.height = this.win_h + "px";
+      },
+
+      WalkFront() {
+        this.unityInstance.SendMessage('shadow', 'WalkFront')
       },
 
       SampleHoge() {
