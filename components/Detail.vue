@@ -130,7 +130,7 @@
   }
 
   .detail {
-    display: none;
+    // display: none;
   }
 
   .inner {

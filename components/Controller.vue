@@ -46,6 +46,10 @@
     bottom: 0;
     left: 0;
     width: 100vw;
+
+    display: none;
+
+
     .inner {
       .buttons {
         width: 100%;
