@@ -1,5 +1,6 @@
 <template lang="pug">
   .index
+    <Opening />
     <TheHeader/>
     <Menu/>
     <Unity/>
@@ -22,9 +23,14 @@ export default {
     margin: 0;
   }
 
+  li {
+    list-style: none;
+  }
+
   .index {
     width: 100%;
     overflow-x: hidden;
+    box-sizing: border-box;
   }
 
 </style>
