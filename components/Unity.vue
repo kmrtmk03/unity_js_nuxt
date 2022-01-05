@@ -32,6 +32,7 @@
       })
 
       window.unityInstance.WalkFront = this.WalkFront
+      window.unityInstance.PlaySound = this.PlaySound
     },
 
     methods: {
@@ -64,14 +65,14 @@
         }
 
         var buildUrl = "Build";
-        var loaderUrl = buildUrl + "/unity_js.loader.js";
+        var loaderUrl = buildUrl + "/mission.loader.js";
         var config = {
-          dataUrl: buildUrl + "/unity_js.data.unityweb",
-          frameworkUrl: buildUrl + "/unity_js.framework.js.unityweb",
-          codeUrl: buildUrl + "/unity_js.wasm.unityweb",
+          dataUrl: buildUrl + "/mission.data.unityweb",
+          frameworkUrl: buildUrl + "/mission.framework.js.unityweb",
+          codeUrl: buildUrl + "/mission.wasm.unityweb",
           streamingAssetsUrl: "StreamingAssets",
           companyName: "DefaultCompany",
-          productName: "unity_js_temp",
+          productName: "mission_temp",
           productVersion: "0.1",
           showBanner: unityShowBanner,
         };
@@ -113,6 +114,10 @@
 
       WalkFront() {
         this.unityInstance.SendMessage('shadow', 'WalkFront')
+      },
+
+      PlaySound() {
+        this.unityInstance.SendMessage('3D_Audio', 'PlaySound')
       },
 
       SampleHoge() {

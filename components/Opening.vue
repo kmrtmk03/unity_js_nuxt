@@ -20,6 +20,7 @@ export default {
 
     clickOn() {
       this.closeOpening()
+      window.unityInstance.PlaySound()
     },
 
     clickOff() {
