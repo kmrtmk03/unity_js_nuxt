@@ -33,6 +33,7 @@
 
       window.unityInstance.WalkFront = this.WalkFront
       window.unityInstance.PlaySound = this.PlaySound
+      window.unityInstance.PlayerColor = this.PlayerColor
     },
 
     methods: {
@@ -123,6 +124,10 @@
 
       PlaySound() {
         this.unityInstance.SendMessage('3D_Audio', 'PlaySound')
+      },
+
+      PlayerColor() {
+        this.unityInstance.SendMessage('myCharacter', 'ChangeMaterial', this.$store.getters['playerColor'])
       },
 
       SampleHoge() {

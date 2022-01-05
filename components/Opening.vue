@@ -6,12 +6,18 @@
           .inner
             p 読み込み中...
       transition(name="fade")
+        .color(v-show="isColor")
+          .inner
+            p 操作キャラクターの色を選択してください
+            .items
+              span(v-for="n in 4" :key="n" :class="'item item-' + n" @click="closeColor(n-1)")
+      transition(name="fade")
         .checkSound(v-show="isCheckSound")
           .inner
-            p サウンドをONにしますか？
+            p サウンドを再生しますか？
             ul
-              li(@click="clickOn()") ON
-              li(@click="clickOff()") OFF
+              li(@click="onSoundYes()") はい
+              li(@click="onSoundNo()") いいえ
 </template>
 
 <script>
@@ -20,6 +26,7 @@ export default {
     return {
       isShow: true,
       isLoading: true,
+      isColor: false,
       isCheckSound: false
     }
   },
@@ -35,7 +42,7 @@ export default {
       this.$nextTick(() => {
         this.isLoading = false
         setTimeout(() => {
-          this.isCheckSound = true
+          this.isColor = true
         }, 1000)
       })
     }
@@ -43,16 +50,38 @@ export default {
 
   methods: {
 
-    clickOn() {
-      this.isCheckSound = false
+    closeColor(_color) {
+      this.$store.commit('playerColor', _color)
+      this.isColor = false
       setTimeout(() => {
-        this.closeOpening()
-        window.unityInstance.PlaySound()
-      }, 1500)
+        this.isCheckSound = true
+      }, 1000)
     },
 
-    clickOff() {
-      this.closeOpening()
+    async onSoundYes() {
+      await this.closeSound()
+
+      window.unityInstance.PlaySound()
+    },
+
+    async onSoundNo() {
+      await this.closeSound()
+    },
+
+    closeSound() {
+      return new Promise((resolve, reject) => {
+        // サウンド選択をフェードアウト
+        this.isCheckSound = false
+
+        // プレイヤーの色を変更
+        window.unityInstance.PlayerColor()
+
+        // サウンド選択のフェードアウト待ち
+        setTimeout(() => {
+          this.closeOpening()
+          resolve()
+        }, 1500)
+      })
     },
 
     closeOpening() {
@@ -89,6 +118,71 @@ export default {
 
     &.fade-leave-to {
       opacity: 0;
+    }
+
+    .color {
+      @include center();
+
+      &.fade-enter-active {
+        opacity: 1;
+        transition: 1s;
+      }
+
+      &.fade-leave-active {
+        opacity: 0;
+        transition: 1s;
+      }
+
+      &.fade-enter,
+      &.fade-leave-to {
+        opacity: 0;
+      }
+
+      .inner {
+        p {
+          font-size: 24px;
+        }
+
+        .items {
+          display: flex;
+          justify-content: center;
+          margin-top: 10px;
+
+          .item {
+            $_size: 48px;
+            display: block;
+            width: $_size;
+            height: $_size;
+            border-radius: 50%;
+            border: 2px solid #333;
+            margin-left: 10px;
+
+            &:hover {
+              cursor: pointer;
+              border-color: #fff;
+              transition: 0.3s;
+            }
+
+            &-1 {
+              margin-left: 0;
+              background-color: blue;
+            }
+
+            &-2 {
+              background-color: yellow;
+            }
+
+            &-3 {
+              background-color: green;
+            }
+
+            &-4 {
+              background-color: red;
+            }
+
+          }
+        }
+      }
     }
 
     .loading {
