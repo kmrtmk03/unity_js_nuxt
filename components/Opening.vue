@@ -1,26 +1,54 @@
 <template lang="pug">
-  .opening(v-if="isShow")
-    .checkSound
-      .inner
-        p サウンドをONにしますか？
-        ul
-          li(@click="clickOn()") ON
-          li(@click="clickOff()") OFF
+  transition(name="fade")
+    .opening(v-show="isShow")
+      transition(name="fade")
+        .loading(v-show="isLoading")
+          .inner
+            p 読み込み中...
+      transition(name="fade")
+        .checkSound(v-show="isCheckSound")
+          .inner
+            p サウンドをONにしますか？
+            ul
+              li(@click="clickOn()") ON
+              li(@click="clickOff()") OFF
 </template>
 
 <script>
 export default {
   data() {
     return {
-      isShow: true
+      isShow: true,
+      isLoading: true,
+      isCheckSound: false
+    }
+  },
+
+  computed: {
+    isLoad: function() {
+      return this.$store.getters['isEndLoad']
+    }
+  },
+
+  watch: {
+    isLoad() {
+      this.$nextTick(() => {
+        this.isLoading = false
+        setTimeout(() => {
+          this.isCheckSound = true
+        }, 1000)
+      })
     }
   },
 
   methods: {
 
     clickOn() {
-      this.closeOpening()
-      window.unityInstance.PlaySound()
+      this.isCheckSound = false
+      setTimeout(() => {
+        this.closeOpening()
+        window.unityInstance.PlaySound()
+      }, 1500)
     },
 
     clickOff() {
@@ -35,6 +63,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+  @mixin center {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
   .opening {
     width: 100vw;
     height: 100vh;
@@ -44,14 +82,51 @@ export default {
     background-color: #ccc;
     z-index: 1000;
 
+    &.fade-leave-active {
+      opacity: 0;
+      transition: 1s;
+    }
+
+    &.fade-leave-to {
+      opacity: 0;
+    }
+
+    .loading {
+      @include center();
+
+      &.fade-leave-active {
+        opacity: 0;
+        transition: 1s;
+      }
+
+      &.fade-leave-to {
+        opacity: 0;
+      }
+
+      .inner {
+        p {
+          font-size: 24px;
+        }
+      }
+    }
+
     .checkSound {
-      width: 100%;
-      height: 100%;
-      margin: 0 auto;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include center();
+
+      &.fade-enter-active {
+        opacity: 1;
+        transition: 1s;
+      }
+
+      &.fade-leave-active {
+        opacity: 0;
+        transition: 1s;
+      }
+
+      &.fade-enter,
+      &.fade-leave-to {
+        opacity: 0;
+      }
 
       .inner {
         p {

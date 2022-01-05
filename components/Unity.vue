@@ -97,6 +97,11 @@
 
             this.unityInstance = unityInstance
 
+            setTimeout(() => {
+              //Uniyの読み込みが完了した時の処理をここに書く
+              this.$store.commit('completeLoad')
+            }, 3000)
+
           }).catch((message) => {
             alert(message);
           });
