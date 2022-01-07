@@ -42,7 +42,8 @@ export default {
       this.$nextTick(() => {
         this.isLoading = false
         setTimeout(() => {
-          this.isColor = true
+          // this.isColor = true
+        this.isCheckSound = true
         }, 1000)
       })
     }

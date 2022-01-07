@@ -66,14 +66,14 @@
         }
 
         var buildUrl = "Build";
-        var loaderUrl = buildUrl + "/mission.loader.js";
+        var loaderUrl = buildUrl + "/mission-photon.loader.js";
         var config = {
-          dataUrl: buildUrl + "/mission.data.unityweb",
-          frameworkUrl: buildUrl + "/mission.framework.js.unityweb",
-          codeUrl: buildUrl + "/mission.wasm.unityweb",
+          dataUrl: buildUrl + "/mission-photon.data",
+          frameworkUrl: buildUrl + "/mission-photon.framework.js",
+          codeUrl: buildUrl + "/mission-photon.wasm",
           streamingAssetsUrl: "StreamingAssets",
           companyName: "DefaultCompany",
-          productName: "mission_temp",
+          productName: "mission-photon_temp",
           productVersion: "0.1",
           showBanner: unityShowBanner,
         };
