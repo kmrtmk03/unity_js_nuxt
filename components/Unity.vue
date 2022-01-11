@@ -130,7 +130,8 @@
       },
 
       PlayerColor() {
-        this.unityInstance.SendMessage('myCharacter', 'ChangeMaterial', this.$store.getters['playerColor'])
+        this.unityInstance.SendMessage('CharactorManager', 'SetMaterialIndex', this.$store.getters['playerColor'])
+        this.unityInstance.SendMessage('CharactorManager', 'ChangeMaterial')
       },
 
       SampleHoge() {

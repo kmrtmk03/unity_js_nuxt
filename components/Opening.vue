@@ -10,7 +10,7 @@
           .inner
             p 操作キャラクターの色を選択してください
             .items
-              span(v-for="n in 4" :key="n" :class="'item item-' + n" @click="closeColor(n-1)")
+              span(v-for="n in 4" :key="n" :class="'item item-' + n" @click="closeColor(n)")
       transition(name="fade")
         .checkSound(v-show="isCheckSound")
           .inner
@@ -42,8 +42,8 @@ export default {
       this.$nextTick(() => {
         this.isLoading = false
         setTimeout(() => {
-          // this.isColor = true
-        this.isCheckSound = true
+          this.isColor = true
+        // this.isCheckSound = true
         }, 1000)
       })
     }
