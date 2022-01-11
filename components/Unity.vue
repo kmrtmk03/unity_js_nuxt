@@ -34,6 +34,9 @@
       window.unityInstance.WalkFront = this.WalkFront
       window.unityInstance.PlaySound = this.PlaySound
       window.unityInstance.PlayerColor = this.PlayerColor
+
+      window.unityMethodsUnity = {}
+      window.unityMethodsUnity.completeLoad = this.CompleteLoad
     },
 
     methods: {
@@ -99,8 +102,8 @@
             this.unityInstance = unityInstance
 
             setTimeout(() => {
-              //Uniyの読み込みが完了した時の処理をここに書く
-              this.$store.commit('completeLoad')
+              // //Uniyの読み込みが完了した時の処理をここに書く
+              // this.CompleteLoad()
             }, 3000)
 
           }).catch((message) => {
@@ -132,6 +135,11 @@
 
       SampleHoge() {
         console.log("hoge-hoge")
+      },
+
+      CompleteLoad() {
+        //Uniyの読み込みが完了した時の処理をここに書く
+        this.$store.commit('completeLoad')
       }
     },
 

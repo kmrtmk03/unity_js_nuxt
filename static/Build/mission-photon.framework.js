@@ -3370,6 +3370,9 @@ Module["STATIC_BUMP"] = STATIC_BUMP;
 var tempDoublePtr = STATICTOP;
 STATICTOP += 16;
 assert(tempDoublePtr % 8 == 0);
+function _CompleteLoad() {
+ window.unityMethodsUnity.completeLoad();
+}
 function _DisplayModal() {
  window.unityMethods.displayModal();
 }
@@ -20224,6 +20227,7 @@ Module.asmLibraryArg = {
  "invoke_vji": invoke_vji,
  "invoke_vjiiii": invoke_vjiiii,
  "invoke_vjji": invoke_vjji,
+ "_CompleteLoad": _CompleteLoad,
  "_DisplayModal": _DisplayModal,
  "_DisplayModalInt": _DisplayModalInt,
  "_Fuga": _Fuga,

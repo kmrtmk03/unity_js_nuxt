@@ -5,7 +5,7 @@
         .logo
           h1 Unity_Nuxt
       .right
-        .menu(@click="sampleCall")
+        .menu
           span.menu_bar
           span.menu_bar
           span.menu_bar
@@ -16,12 +16,6 @@
   export default {
     data() {
       return {}
-    },
-
-    methods: {
-      sampleCall() {
-        window.unityMethods.displayModalInt(0)
-      }
     }
   }
 
