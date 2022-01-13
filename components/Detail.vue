@@ -30,67 +30,67 @@
             title: "Photo-0",
             camera: "SONY RX100",
             place: "大阪 あびこ駅ホーム",
-            desc: "粒度荒目のモノクロームです"
+            desc: "説明文が入ります説明文が入ります説明文が入ります説明文が入ります"
           },
           {
             title: "Photo-1",
             camera: "SONY RX100",
             place: "大阪",
-            desc: "粒度荒目のモノクロームです"
+            desc: "説明文が入ります説明文が入ります説明文が入ります説明文が入ります"
           },
           {
             title: "Photo-2",
             camera: "SONY RX100",
             place: "大阪",
-            desc: "粒度荒目のモノクロームです"
+            desc: "説明文が入ります説明文が入ります説明文が入ります説明文が入ります"
           },
           {
             title: "Photo-3",
             camera: "SONY RX100",
             place: "大阪 布施駅周辺",
-            desc: "粒度荒目のモノクロームです"
+            desc: "説明文が入ります説明文が入ります説明文が入ります説明文が入ります"
           },
           {
             title: "Photo-4",
             camera: "FUJIFILM X-T2",
             place: "大阪 大阪城公園",
-            desc: "粒度荒目のモノクロームです"
+            desc: "説明文が入ります説明文が入ります説明文が入ります説明文が入ります"
           },
           {
             title: "Photo-5",
             camera: "Nikon D40",
             place: "大阪 自宅周辺",
-            desc: "粒度荒目のモノクロームです"
+            desc: "説明文が入ります説明文が入ります説明文が入ります説明文が入ります"
           },
           {
             title: "Photo-6",
             camera: "Nikon D40",
             place: "大阪 箕面の滝",
-            desc: "粒度荒目のモノクロームです"
+            desc: "説明文が入ります説明文が入ります説明文が入ります説明文が入ります"
           },
           {
             title: "Photo-7",
             camera: "FUJIFILM X-T2",
             place: "大阪 箕面の滝",
-            desc: "粒度荒目のモノクロームです"
+            desc: "説明文が入ります説明文が入ります説明文が入ります説明文が入ります"
           },
           {
             title: "Photo-8",
             camera: "Nikon D100",
             place: "京都 嵐山周辺",
-            desc: "粒度荒目のモノクロームです"
+            desc: "説明文が入ります説明文が入ります説明文が入ります説明文が入ります"
           },
           {
             title: "Photo-9",
             camera: "FUJIFILM X-T2",
             place: "大阪 万博記念公園",
-            desc: "粒度荒目のモノクロームです"
+            desc: "説明文が入ります説明文が入ります説明文が入ります説明文が入ります"
           },
           {
             title: "Photo-10",
             camera: "FUJIFILM X-T2",
             place: "大阪",
-            desc: "粒度荒目のモノクロームです"
+            desc: "説明文が入ります説明文が入ります説明文が入ります説明文が入ります"
           }
         ]
       }

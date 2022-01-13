@@ -39,6 +39,10 @@ export default {
   modules: [
   ],
 
+  router: {
+    base: '/check/kimura/mission/'
+   },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     loaders: {
