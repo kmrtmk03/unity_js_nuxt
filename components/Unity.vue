@@ -69,14 +69,14 @@
         }
 
         var buildUrl = "Build";
-        var loaderUrl = buildUrl + "/mission-photon.loader.js";
+        var loaderUrl = buildUrl + "/mission-nophoton.loader.js";
         var config = {
-          dataUrl: buildUrl + "/mission-photon.data",
-          frameworkUrl: buildUrl + "/mission-photon.framework.js",
-          codeUrl: buildUrl + "/mission-photon.wasm",
+          dataUrl: buildUrl + "/mission-nophoton.data",
+          frameworkUrl: buildUrl + "/mission-nophoton.framework.js",
+          codeUrl: buildUrl + "/mission-nophoton.wasm",
           streamingAssetsUrl: "StreamingAssets",
           companyName: "DefaultCompany",
-          productName: "mission-photon_temp",
+          productName: "mission-nophoton_temp",
           productVersion: "0.1",
           showBanner: unityShowBanner,
         };

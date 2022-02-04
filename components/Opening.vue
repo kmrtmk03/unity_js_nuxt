@@ -42,8 +42,8 @@ export default {
       this.$nextTick(() => {
         this.isLoading = false
         setTimeout(() => {
-          this.isColor = true
-        // this.isCheckSound = true
+          // this.isColor = true // photonを使わないときは一旦色選択飛ばす
+        this.isCheckSound = true
         }, 1000)
       })
     }
@@ -75,7 +75,7 @@ export default {
         this.isCheckSound = false
 
         // プレイヤーの色を変更
-        window.unityInstance.PlayerColor()
+        // window.unityInstance.PlayerColor() // photonを使わない時は一旦コメントアウト
 
         // サウンド選択のフェードアウト待ち
         setTimeout(() => {

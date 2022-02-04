@@ -40,7 +40,7 @@ export default {
   ],
 
   router: {
-    base: '/check/kimura/mission/'
+    base: '/check/kimura/mission/no-photon/'
    },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
